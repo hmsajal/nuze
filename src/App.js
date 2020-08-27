@@ -1,10 +1,13 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+
+import News from "./components/newsContainer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header"></header>
-    </div>
+    <Router>
+      <News />
+    </Router>
   );
 }
 
