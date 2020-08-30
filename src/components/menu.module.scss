@@ -1,0 +1,35 @@
+@import "../variables.scss";
+
+.toolBar {
+  background: #fff;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.menuButton {
+}
+.title {
+  color: #275;
+  h1 {
+    font-weight: bold;
+    font-style: italic;
+    font-family: baskerville;
+  }
+}
+.search {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: $min-md) {
+  .toolBar {
+    height: 60px;
+  }
+}
+@media (min-width: $min-lg) {
+  .toolBar {
+    height: 70px;
+  }
+}

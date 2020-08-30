@@ -1,3 +1,22 @@
+@import "../variables.scss";
+
 .main {
-  padding: 30px;
+  padding: 20px;
+  position: relative;
+  top: 70px;
+}
+@media (min-width: $min-sm) {
+  .main {
+    padding: 30px;
+  }
+}
+@media (min-width: $min-lg) {
+  .main {
+    padding: 40px;
+  }
+}
+@media (min-width: min-xl) {
+  .main {
+    padding: 50px;
+  }
 }

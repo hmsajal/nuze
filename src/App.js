@@ -1,12 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import News from "./components/newsContainer";
+import News from "./components/news";
+import Menu from "./components/menu";
 
 function App() {
   return (
     <Router>
-      <News />
+      <Menu />
+      <Route to="/" component={News} />
     </Router>
   );
 }

@@ -2,27 +2,33 @@
   min-height: 32px;
   display: flex;
   justify-content: space-between;
-  background: #09a2;
-
+  background: #0d768077;
   div:nth-child(1) {
-    padding-left: 5px;
+    padding-left: 10px;
     font-size: 14.5px;
     width: 60%;
 
     a {
       text-decoration: none;
-      color: #b90e0a;
+      color: #d0312d;
       font-weight: bold;
       &:hover {
-        color: #dd0e0a;
+        color: #990f02;
       }
     }
   }
 
   div:nth-child(2) {
-    padding-right: 5px;
+    padding-right: 10px;
     font-size: 13px;
     color: #222;
     font-family: calibri, sans-serif;
+  }
+}
+.cardContent {
+  background: #e7e7e777;
+  h3 {
+    margin-top: 0px;
+    margin-bottom: 30px;
   }
 }
