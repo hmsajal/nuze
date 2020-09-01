@@ -8,17 +8,19 @@ import CardMedia from "@material-ui/core/CardMedia";
 import styles from "./singleNews.module.scss";
 
 export default function SingleNews({ item }) {
-  let [newsDate, setDate] = React.useState("");
   let [logoUrl, setLogoUrl] = React.useState("");
+  let [newsDate, setNewsDate] = React.useState("");
+  let [newsTime, setNewsTime] = React.useState("");
 
   React.useEffect(() => {
-    let date = item.publishedAt.split("T")[0].split("-");
-    setDate(date[2] + "-" + date[1] + "-" + date[0]);
+    let url = item.source.url.split("//")[1].split("/")[0];
+    setLogoUrl(url);
   }, [item]);
 
   React.useEffect(() => {
-    let url = item.url.split("//")[1].split("/")[0];
-    setLogoUrl(url);
+    let dtArray = item.publishedAt.split(" ");
+    setNewsDate(dtArray[0]);
+    setNewsTime(dtArray[1]);
   }, [item]);
 
   return (
@@ -31,12 +33,12 @@ export default function SingleNews({ item }) {
       >
         <CardMedia
           component="img"
-          alt={item.source.name}
+          alt={item.image}
           height="140"
           image={
-            item.urlToImage === null || item.urlToImage === ""
+            item.image === null || item.image === ""
               ? "https://logo.clearbit.com/" + logoUrl + "?size=600"
-              : item.urlToImage
+              : item.image
           }
           title={item.title}
         />
@@ -46,14 +48,16 @@ export default function SingleNews({ item }) {
       </CardActionArea>
       <CardActions className={styles.cardActions} component="div">
         <div>
-          <a
-            href={"https://" + item.url.split("//")[1].split("/")[0]}
-            target="_blank"
-          >
+          <a href={item.source.url} target="_blank">
             {item.source.name}
           </a>
         </div>
-        <div>{newsDate}</div>
+        <div>
+          {newsDate
+            .split("-")
+            .reverse()
+            .map((item, i) => (i === 2 ? item : item + "-"))}
+        </div>
       </CardActions>
     </Card>
   );
